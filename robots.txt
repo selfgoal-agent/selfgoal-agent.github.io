@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://time-arena.github.io/sitemap.xml
