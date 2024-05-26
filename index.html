@@ -1338,16 +1338,18 @@
 </p>
 <!-- ## Crafting AI Bidders: Planning, Bidding, and Replanning -->
 <h2 id="the-design-of-SELFGOAL">Details in SELFGOAL</h2>
-<p> <em>1) Search Module:</em> Identify the most suitable subgoals for the current situation, such as choosing the most useful subgoals to achieve the main goal. We use a representation of the current state as a description of the interaction history with the environment and consider the leaf nodes of each branch as potential subgoals. The LLM then selects the most appropriate subgoals, which leads to the updating of the instruction prompt for the next steps. <em>2) Decompose Module:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. <em>3) Act Module</em> after identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
+<p> <em>1) Search Module:</em> Identify the most suitable subgoals for the current situation, such as choosing the most useful subgoals to achieve the main goal. We use a representation of the current state as a description of the interaction history with the environment and consider the leaf nodes of each branch as potential subgoals. The LLM then selects the most appropriate subgoals, which leads to the updating of the instruction prompt for the next steps. </p>
+<p> <em>2) Decompose Module:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. </p>
+<p> <em>3) Act Module</em> after identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
 <h2 id="analyzing-SELFGOAL">SELFGOAL outperforms all baseline frameworks in various environments</h2>
 <p>Efficient multitasking involves handling multiple tasks and parallel processing to save time. In multitasking, most models struggle to complete 2 or 3 tasks, highlighting their limited capabilities. For parallel processing, even GPT-4&rsquo;s completion time falls short of oracle performance, showing the challenges of parallel processing.</p>
 <center class="half">
   <img src="/uploads/results.jpg" width="100%"/>
 </center>
-<h2 id="can-language-agents-master-multitasking">Can language agents master multitasking?</h2>
-<p>The high proportion of actions that violate dependencies and mismatch objects suggests that language agents face challenges in managing complex action interdependencies during multitasking.</p>
+<h2 id="can-selfgoal-improve-rationality">Can SELFGOAL improve the rationality in agents' behaviors?</h2>
+<p>With SELFGOAL, agents in the Public Goods scenario consistently act more rationally compared to those using alternative methods. For the Guessing Game, enhanced models showed smoother, more steadily declining curves, indicating quicker convergence to the Nash equilibrium.</p>
 <center class="half">
-  <img src="/uploads/error.jpg" width="50%"/>
+  <img src="/uploads/rational.pdf" width="100%"/>
 </center>
 <h2 id="are-language-agents-aware-of-parallel-processing">Are language agents aware of parallel processing?</h2>
 <p>Waiting actions constitute over half of the valid actions performed by different LLMs, and necessary wait only accounts for a small part of it. This indicates a tendency for
