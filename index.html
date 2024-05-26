@@ -439,11 +439,14 @@
   <div class="col-12">
     <!-- Welcome to the battleground where AI, especially Large Language Models (LLMs), test their mettle in an environment pulsating with strategy, risk, and competition - the _Auction Arena_! -->
 <!-- ## Introduction: A Dive into Dynamic Auctions with LLMs -->
-<h2 id="overview-of-SELFGOAL">Overview of <span class="small-caps">SELFGOAL</span></h2>
-<p>Previous works focus on creating two types of auxiliary guidance in the instructions for language agents to achieve high-level goals in tasks: prior task decomposition and post-hoc experience summarization. However, learnings directly from feedback are often too general and not systematic, making it difficult to prioritize strategies effectively, while decomposing tasks before interaction with the environments, resulting in a lack of grounded, dynamic adjustment. To address this, Our paper, <a href="https://arxiv.org/pdf/2402.05733.pdf" target="_blank" rel="noopener">SELFGOAL: Your Language Agents Already Know How to Achieve High-level Goals</a> aim to combine modular goal decomposition with learning from environmental feedback. SELFGOAL is a non-parametric learning algorithm for language agents, i.e., without parameter update. Concretely, SELFGOAL is featured with two key modules, Decomposition and Search which construct and utilize a subgoal tree respectively, namely GoalTree, to interact with the environment. Setting the high-level goal of the task as the root node in GoalTree, Search Module finds the nodes that are helpful for the status quo, and Decomposition Module decomposes the node into subgoals as leaf nodes if it is not clear enough.
+<h2 id="overview-of-SELFGOAL">Overview of <strong>SELFGOAL</strong></h2>
+<p>Previous works focus on creating two types of auxiliary guidance in the instructions for language agents to achieve high-level goals in tasks: prior task decomposition and post-hoc experience summarization. However, learnings directly from feedback are often too general and not systematic, making it difficult to prioritize strategies effectively, while decomposing tasks before interaction with the environments, resulting in a lack of grounded, dynamic adjustment. 
+</p>
 <p>
-
-
+  To address this, Our paper, <a href="https://arxiv.org/pdf/2402.05733.pdf" target="_blank" rel="noopener">SELFGOAL: Your Language Agents Already Know How to Achieve High-level Goals</a> aim to combine modular goal decomposition with learning from environmental feedback. <strong>SELFGOAL</strong> is a non-parametric learning algorithm for language agents, i.e., without parameter update. 
+  Concretely, <strong>SELFGOAL</strong> is featured with two key modules, <em><strong>Decomposition</strong></em> and <em><strong>Search</strong></em> which construct and utilize a subgoal tree respectively, namely GoalTree, to interact with the environment. 
+  Setting the high-level goal of the task as the root node in GoalTree, Search Module finds the nodes that are helpful for the status quo, and Decomposition Module decomposes the node into subgoals as leaf nodes if it is not clear enough.
+</p>
 
 
 
@@ -456,27 +459,27 @@
   </div></figure>
 </p>
 <!-- ## Crafting AI Bidders: Planning, Bidding, and Replanning -->
-<h2 id="the-design-of-SELFGOAL">Details in SELFGOAL</h2>
+<h2 id="the-design-of-SELFGOAL">Details in <strong>SELFGOAL</strong></h2>
 <p> <em>1) <strong>Search Module</strong>:</em> Identify the most suitable subgoals for the current situation, such as choosing the most useful subgoals to achieve the main goal. We use a representation of the current state as a description of the interaction history with the environment and consider the leaf nodes of each branch as potential subgoals. The LLM then selects the most appropriate subgoals, which leads to the updating of the instruction prompt for the next steps. </p>
 <p> <em>2) <strong>Decompose Module</strong>:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. </p>
 <p> <em>3) <strong>Act Module</strong>:</em> After identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
-<h2 id="analyzing-SELFGOAL">SELFGOAL outperforms all baseline frameworks in various environments</h2>
+<h2 id="analyzing-SELFGOAL"><strong>SELFGOAL</strong> outperforms all baseline frameworks in various environments</h2>
 <p>Efficient multitasking involves handling multiple tasks and parallel processing to save time. In multitasking, most models struggle to complete 2 or 3 tasks, highlighting their limited capabilities. For parallel processing, even GPT-4&rsquo;s completion time falls short of oracle performance, showing the challenges of parallel processing.</p>
 <center class="half">
   <img src="/uploads/results.jpg" width="100%"/>
 </center>
-<h2 id="can-selfgoal-improve-rationality">Can SELFGOAL improve the rationality in agents' behaviors?</h2>
-<p>With SELFGOAL, agents in the Public Goods scenario consistently act more rationally compared to those using alternative methods. For the Guessing Game, enhanced models showed smoother, more steadily declining curves, indicating quicker convergence to the Nash equilibrium.</p>
+<h2 id="can-selfgoal-improve-rationality">Can <strong>SELFGOAL</strong> improve the rationality in agents' behaviors?</h2>
+<p>With <strong>SELFGOAL</strong>, agents in the Public Goods scenario consistently act more rationally compared to those using alternative methods. For the Guessing Game, enhanced models showed smoother, more steadily declining curves, indicating quicker convergence to the Nash equilibrium.</p>
 <center class="half">
   <img src="/uploads/rational.jpg" width="100%"/>
 </center>
 <h2 id="case-study">Case Study</h2>
-<p>SELFGOAL provides agents with actionable guidance such as <em>Ask clarifying questions</em>, prompting agents to pay early attention to their opponent's psychological assessment and different valuations of items. 
-  After acquiring a partner's valuation, SELFGOAL then gives guidance such as <em>make concessions</em>, leading the agent to propose a plan that gives up a particular item in exchange for minimizing the profit difference.
+<p><strong>SELFGOAL</strong> provides agents with actionable guidance such as <em>Ask clarifying questions</em>, prompting agents to pay early attention to their opponent's psychological assessment and different valuations of items. 
+  After acquiring a partner's valuation, <strong>SELFGOAL</strong> then gives guidance such as <em>make concessions</em>, leading the agent to propose a plan that gives up a particular item in exchange for minimizing the profit difference.
 </p>
 <p>
-  In contrast, CLIN advises agents to <em>consider the preference of the partner</em>, which leads agents to focus on the opponent's preferences but may result in plans that sacrifice their own interests to improve the other party's income. 
-  ADAPT, which decomposes tasks beforehand, provides very broad advice such as <em>equal allocation</em>. 
+  In contrast, <strong>CLINE</strong> advises agents to <em>consider the preference of the partner</em>, which leads agents to focus on the opponent's preferences but may result in plans that sacrifice their own interests to improve the other party's income. 
+  <strong>ADAPT</strong>, which decomposes tasks beforehand, provides very broad advice such as <em>equal allocation</em>. 
   This generic advice aims to minimize the profit gap but may not be suitable for scenarios lacking knowledge of the partner's valuation. 
 </p>
 <center class="half">
@@ -485,9 +488,9 @@
 <p> 
 
 </p >
-<p>In conclusion, we demonstrate that SELFGOAL significantly improves agent performance by dynamically generating and refining a hierarchical GoalTree of contextual subgoals based on interactions with the environments. 
+<p>In conclusion, we demonstrate that <strong>SELFGOAL</strong> significantly improves agent performance by dynamically generating and refining a hierarchical GoalTree of contextual subgoals based on interactions with the environments. 
   Experiments show that this method is effective in both competitive and cooperative scenarios, outperforming baseline approaches. 
-  Moreover, GoalTree can be continually updated as agents with SELFGOAL further engage with the environments, enabling them to navigate complex environments with greater precision and adaptability. 
+  Moreover, GoalTree can be continually updated as agents with <strong>SELFGOAL</strong> further engage with the environments, enabling them to navigate complex environments with greater precision and adaptability. 
 </p>
 <!-- For a comprehensive dive into our methodologies, findings, and insights, explore our research paper. There are many tasks left for future research, such as manipulating the simulation for more details and setups, enabling lifelong learning for LLM agents, and making LLM agents more aware of their desires, etc. -->
   </div>
