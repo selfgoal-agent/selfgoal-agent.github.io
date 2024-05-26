@@ -1338,9 +1338,9 @@
 </p>
 <!-- ## Crafting AI Bidders: Planning, Bidding, and Replanning -->
 <h2 id="the-design-of-SELFGOAL">Details in SELFGOAL</h2>
-<p> <em>1) Search Module:</em> Identify the most suitable subgoals for the current situation, such as choosing the most useful subgoals to achieve the main goal. We use a representation of the current state as a description of the interaction history with the environment and consider the leaf nodes of each branch as potential subgoals. The LLM then selects the most appropriate subgoals, which leads to the updating of the instruction prompt for the next steps. </p>
-<p> <em>2) Decompose Module:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. </p>
-<p> <em>3) Act Module</em> after identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
+<p> <em>1) <strong>Search Module</strong>:</em> Identify the most suitable subgoals for the current situation, such as choosing the most useful subgoals to achieve the main goal. We use a representation of the current state as a description of the interaction history with the environment and consider the leaf nodes of each branch as potential subgoals. The LLM then selects the most appropriate subgoals, which leads to the updating of the instruction prompt for the next steps. </p>
+<p> <em>2) <strong>Decompose Module</strong>:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. </p>
+<p> <em>3) <strong>Act Module</strong>:</em> After identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
 <h2 id="analyzing-SELFGOAL">SELFGOAL outperforms all baseline frameworks in various environments</h2>
 <p>Efficient multitasking involves handling multiple tasks and parallel processing to save time. In multitasking, most models struggle to complete 2 or 3 tasks, highlighting their limited capabilities. For parallel processing, even GPT-4&rsquo;s completion time falls short of oracle performance, showing the challenges of parallel processing.</p>
 <center class="half">
@@ -1351,18 +1351,21 @@
 <center class="half">
   <img src="/uploads/rational.jpg" width="100%"/>
 </center>
-<h2 id="are-language-agents-aware-of-parallel-processing">Are language agents aware of parallel processing?</h2>
-<p>Waiting actions constitute over half of the valid actions performed by different LLMs, and necessary wait only accounts for a small part of it. This indicates a tendency for
-agents to engage in unnecessary waiting, showing their ignorance of parallel processing.</p>
+<h2 id="case-study">Case Study</h2>
+<p>SELFGOAL provides agents with actionable guidance such as <em>Ask clarifying questions</em>, prompting agents to pay early attention to their opponent's psychological assessment and different valuations of items. 
+  After acquiring a partner's valuation, SELFGOAL then gives guidance such as <em>make concessions</em>, leading the agent to propose a plan that gives up a particular item in exchange for minimizing the profit difference.
+  
+  In contrast, CLIN advises agents to <em>consider the preference of the partner</em>, which leads agents to focus on the opponent's preferences but may result in plans that sacrifice their own interests to improve the other party's income. 
+  ADAPT, which decomposes tasks beforehand, provides very broad advice such as <em>equal allocation</em>. 
+  This generic advice aims to minimize the profit gap but may not be suitable for scenarios lacking knowledge of the partner's valuation. 
+</p>
+<center class="half">
+  <img src="/uploads/case.jpg" width="100%"/>
+</center>
 <h2 id="do-resource-constraints-affect-the-multitasking-of-language-agents">Do resource constraints affect the multitasking of language agents?</h2>
 <p>Resource constraints do not affect the task completion time or speed, revealing that GPT-4 rarely attempts to process tasks in parallel. However, a noticeable decline in both completion rate and progress score indicates that the constraints prevent the models from better comprehending and decomposing multiple tasks.</p>
 <p align="center">
 <img src="/uploads/constraint.jpg" width="70%" />
-</p>
-<h2 id="language-agents-trapped-in-an-infinite-loop">Language agents trapped in an infinite loop.</h2>
-<p>Vicuna, Mistral, Gemini, and GPT-3.5 often stop scoring without completing all tasks because they alternate between performing incorrect actions and waiting. These models struggle to correct their actions based on feedback after waiting, trapping them in infinite loops.</p>
-<p align="center">
-<img src="/uploads/curve_new.jpg" width="100%" />
 </p>
 <p>In conclusion, our findings indicate that as tasks become more complex, the models struggle to complete them and often fail to recognize opportunities for parallel processing. This reveals that language agents still have significant room for improvement when completing multiple tasks in dynamic environments, highlighting an area for future research.</p>
 <!-- For a comprehensive dive into our methodologies, findings, and insights, explore our research paper. There are many tasks left for future research, such as manipulating the simulation for more details and setups, enabling lifelong learning for LLM agents, and making LLM agents more aware of their desires, etc. -->
