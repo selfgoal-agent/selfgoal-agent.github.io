@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en-us" >
 
 
+
 <head>
   <meta charset="utf-8" />
   <style>
@@ -408,7 +409,10 @@
 <p> <em>2) <strong>Decompose Module</strong>:</em> Refine the strategy tree based on the current action-state scenario if it lacks specificity for guiding the agent effectively. The LLM deconstructs the selected subgoal and proposes new subgoals. A filtering mechanism ensures the uniqueness of subgoals by checking the similarity between them. If no new subgoals are added after several attempts, updates to the strategy tree are halted. </p>
 <p> <em>3) <strong>Act Module</strong>:</em> After identifying useful subgoals from the strategy tree, the agent updates its instructions and interacts with the environment, using the derived subgoals to guide its actions.</p>
 <h2 id="analyzing-SELFGOAL">SELFGOAL outperforms all baseline frameworks in various environments</h2>
-<p>Efficient multitasking involves handling multiple tasks and parallel processing to save time. In multitasking, most models struggle to complete 2 or 3 tasks, highlighting their limited capabilities. For parallel processing, even GPT-4&rsquo;s completion time falls short of oracle performance, showing the challenges of parallel processing.</p>
+<p>We evaluate SELFGOAL across 4 dynamic tasks with high-level goals, including <strong>Public Goods Game</strong>, <strong>Guess 2/3 of the Average</strong>, <strong>First-price Auction</strong>, and <strong>Bargaining</strong>.
+In our experiments, we repeat single-round games for $T=20$ times and multi-round games for $T=10$ times for stable results.
+Overall, our SELFGOAL significantly outperforms all baseline frameworks in various environments containing high-level goals, where larger LLMs produce higher gains. 
+</p>
 <center class="half">
   <img src="/uploads/results.jpg" width="100%"/>
 </center>
