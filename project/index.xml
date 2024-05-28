@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects | TimeArena</title>
-    <link>https://time-arena.github.io/project/</link>
-      <atom:link href="https://time-arena.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <title>Projects | SELFGOAL</title>
+    <link>https://selfgoal.github.io/project/</link>
+      <atom:link href="https://selfgoal.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
     <image>
-      <url>https://time-arena.github.io/media/icon_hu782ba91d3e4ee1ba2b82d63e30fa0eb2_208406_512x512_fill_lanczos_center_3.png</url>
+      <url>https://selfgoal.github.io/media/star.png</url>
       <title>Projects</title>
-      <link>https://time-arena.github.io/project/</link>
+      <link>https://selfgoal.github.io/project/</link>
     </image>
     
     <item>
       <title>TimeArena Code</title>
-      <link>https://time-arena.github.io/project/code/</link>
+      <link>https://selfgoal.github.io/project/code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://time-arena.github.io/project/code/</guid>
+      <guid>https://selfgoal.github.io/project/code/</guid>
       <description>&lt;!-- ---
 title: TimeArena Code
 summary: Code for running TimeArena and experiments.
 date: 2024-2-10
-external_link: https://github.com/ykzhang721/TimeArena --&gt;
+external_link: https://github.com/rhyang21/SELFGOAL --&gt;
 &lt;!-- --- --&gt;
 </description>
     </item>
     
     <item>
-      <title>TimeArena Paper</title>
-      <link>https://time-arena.github.io/project/paper/</link>
+      <title>SELFGOAL Paper</title>
+      <link>https://selfgoal.github.io/project/paper/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://time-arena.github.io/project/paper/</guid>
+      <guid>https://selfgoal.github.io/project/paper/</guid>
       <description></description>
     </item>
     
