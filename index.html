@@ -414,7 +414,6 @@
   <a href="https://github.com/CUHK-ARISE/GAMABench" target="_blank" rel="noopener">Guess 2/3 of the Average</a>,
   <a href="https://auction-arena.github.io/" target="_blank" rel="noopener">First-price Auction</a> and 
   <a href="https://arxiv.org/abs/1706.05125" target="_blank" rel="noopener">Bargaining</a>.
-In our experiments, we repeat single-round games for $T=20$ times and multi-round games for $T=10$ times for stable results.
 Overall, our SELFGOAL significantly outperforms all baseline frameworks in various environments containing high-level goals, where larger LLMs produce higher gains. 
 </p>
 <center class="half">
@@ -422,8 +421,8 @@ Overall, our SELFGOAL significantly outperforms all baseline frameworks in vario
 </center>
 <h2 id="How does the granularity of guidelines in \tree affect task solving?">How does the granularity of guidelines in SELFGOAL affect task solving?</h2>
 <p>
-Here, we examine SELFGOAL's performance adjustment through varying subgoal granularity by altering the threshold $\xi$. 
-While deeper trees initially enhance performance, excessive detail eventually reduces effectiveness, as redundant nodes complicate the search module's task of selecting valuable guidance, often overlooking beneficial nodes. 
+Here, we examine SELFGOAL' s performance adjustment through varying subgoal granularity by altering the threshold $\xi$. 
+While deeper trees initially enhance performance, excessive detail eventually reduces effectiveness, as redundant nodes complicate the search module' s task of selecting valuable guidance, often overlooking beneficial nodes. 
 This underscores the need for a balanced depth in guidance trees to optimize agent performance without the pitfalls of over-detailing.
 </p>
 <center class="half">
