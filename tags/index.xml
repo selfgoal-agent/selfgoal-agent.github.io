@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags | SELFGOAL</title>
-    <link>https://selfgoal.github.io/tags/</link>
+    <link>https://goaltree.github.io/tags/</link>
       <atom:link href="https://selfgoal.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
     <image>
-      <url>https://selfgoal.github.io/media/star.png</url>
+      <url>https://goaltree.github.io/media/star.png</url>
       <title>Tags</title>
-      <link>https://selfgoal.github.io/tags/</link>
+      <link>https://goaltree.github.io/tags/</link>
     </image>
     
   </channel>
